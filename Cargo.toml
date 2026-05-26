@@ -1,0 +1,26 @@
+[package]
+name = "hopbox-server"
+version = "0.1.0"
+edition = "2021"
+description = "hopbox session daemon — self-hosted persistent terminal sessions"
+repository = "https://github.com/ConflictHQ/hopbox-server"
+
+[[bin]]
+name = "hopbox-server"
+path = "src/main.rs"
+
+[dependencies]
+hopbox-core = { git = "https://github.com/ConflictHQ/hopbox-core" }
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = { version = "0.24", features = ["rustls-tls-webpki-roots"] }
+rustls = "0.23"
+axum = "0.8"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1"
+uuid = { version = "1", features = ["v4"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
